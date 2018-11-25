@@ -3,6 +3,7 @@ package com.tomoima.debot.sample;
 import android.app.Application;
 import android.content.res.Configuration;
 
+import com.squareup.leakcanary.LeakCanary;
 import com.tomoima.debot.DebotConfigurator;
 import com.tomoima.debot.DebotStrategyBuilder;
 import com.tomoima.debot.sample.strategy.MyCustomStrategy;
@@ -37,6 +38,7 @@ public class MyApplication extends Application {
                 .build();
         DebotConfigurator.configureWithCustomizedMenu(builder.getStrategyList());
         //DebotConfigurator.configureWithDefault();
+        LeakCanary.install(this);
     }
 
     /**
